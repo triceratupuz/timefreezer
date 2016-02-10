@@ -1,0 +1,11 @@
+;Time Freezer Audio Options
+--omacro:SRATE=44100
+--omacro:KRATE=64
+-iadc
+-odac
+;-iadc:system:capture_ 
+;-odac:system:playback_
+;-+rtaudio=jack 
+; -b 128 -B 512
+; -+jack_client=time_freezer
+ 
