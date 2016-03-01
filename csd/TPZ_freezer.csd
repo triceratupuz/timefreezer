@@ -47,6 +47,22 @@ elseif kmode$NUM == 1 then
 		tabw 1, kind$NUM, 14
 		;printk2 kcoActvd$NUM
 	endif
+
+elseif kmode$NUM == 2 then
+	kthrs$NUM tab kind$NUM, 16
+	ktrig trigger k_t_rms_db, kthrs$NUM, 1
+	if kactive$NUM == 0 && ktrig == 1 then
+		kcoActvd$NUM wrap kcoActvd$NUM + 1, 1, 10
+		event "i", 10 + 0.01 * $NUM + 0.001 * kcoActvd$NUM, 0, -1, $NUM
+		tabw 1, kind$NUM, 14
+	elseif kactive$NUM > 0 && ktrig == 1 then
+		event "i", -10 - 0.01 * $NUM - 0.001 * kcoActvd$NUM, 0, 0.01
+		tabw 0, kind$NUM, 14
+		kcoActvd$NUM wrap kcoActvd$NUM + 1, 1, 10
+		event "i", 10 + 0.01 * $NUM  + 0.001 * kcoActvd$NUM, 0, -1, $NUM
+		tabw 1, kind$NUM, 14
+		;printk2 kcoActvd$NUM
+	endif
 endif
 
 if kmode$NUM != kmode_prev$NUM then

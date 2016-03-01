@@ -72,7 +72,7 @@ class Freezer():
 		self.items=[]
 		siz=wx.Size(70,-1)#size of widgets
 		#Trigger Mode
-		self.actModes = ["Manual", "Auto Trig"] 
+		self.actModes = ["Manual", "Auto Above", "Auto Below"] 
 		self.trigmode = wx.ComboBox(self.parent, -1, choices=self.actModes, size=siz)
 		self.trigmode.SetValue(self.actModes[0])
 		self.trigmode.SetSelection(0)
@@ -88,81 +88,81 @@ class Freezer():
 		self.items.append(self.startstopB)
 		#Auto threshold
 		self.thres = fsm.FsmTs(parent=self.parent, id=-1,
-																		digits=2,
-																		min_val = -60.0,
-																		max_val = 0.0,
-																		increment=0.01,
-																		value = 0.0,
-																		size = siz,
-																		cSound = self.cSound,
-																		indxn = self.istance,
-																		ftable = 16)
+											digits=2,
+											min_val = -60.0,
+											max_val = 0.0,
+											increment=0.01,
+											value = 0.0,
+											size = siz,
+											cSound = self.cSound,
+											indxn = self.istance,
+											ftable = 16)
 		self.items.append(self.thres)
 		self.cSound.TableSet(16, self.istance, 0)
 		#attack
 		self.att = fsm.FsmTs(parent=self.parent, id=-1,
-																		digits=3,
-																		min_val = 0.0,
-																		max_val = 1.0,
-																		increment=0.01,
-																		value = 0.1,
-																		size = siz,
-																		cSound = self.cSound,
-																		indxn = self.istance,
-																		ftable = 10)
+											digits=3,
+											min_val = 0.0,
+											max_val = 1.0,
+											increment=0.01,
+											value = 0.1,
+											size = siz,
+											cSound = self.cSound,
+											indxn = self.istance,
+											ftable = 10)
 		self.items.append(self.att)
 		self.cSound.TableSet(10, self.istance, 0.1)
 		#release
 		self.rel = fsm.FsmTs(parent=self.parent, id=-1,
-																		digits=3,
-																		min_val = 0.0,
-																		max_val = 1.0,
-																		increment=0.01,
-																		value = 0.1,
-																		size = siz,
-																		cSound = self.cSound,
-																		indxn = self.istance,
-																		ftable = 11)
+											digits=3,
+											min_val = 0.0,
+											max_val = 1.0,
+											increment=0.01,
+											value = 0.1,
+											size = siz,
+											cSound = self.cSound,
+											indxn = self.istance,
+											ftable = 11)
 		self.items.append(self.rel)
 		self.cSound.TableSet(11, self.istance, 0.1)
 		#pan
 		self.pan = fsm.FsmTs(parent=self.parent, id=-1,
-																		digits=3,
-																		min_val = 0.0,
-																		max_val = 1.0,
-																		increment=0.01,
-																		value = 0.5,
-																		size = siz,
-																		mousev = 0,
-																		cSound = self.cSound,
-																		indxn = self.istance,
-																		ftable = 12)
+											digits=3,
+											min_val = 0.0,
+											max_val = 1.0,
+											increment=0.01,
+											value = 0.5,
+											size = siz,
+											mousev = 0,
+											cSound = self.cSound,
+											indxn = self.istance,
+											ftable = 12)
 		self.items.append(self.pan)
 		self.cSound.TableSet(12, self.istance, 0.5)
 		#pitchshift
 		self.shf = fsm.FsmTs(parent=self.parent, id=-1,
-																		digits=2,
-																		min_val = -12.0,
-																		max_val = 12.0,
-																		increment=0.01,
-																		value = 0.0,
-																		size = siz,
-																		cSound = self.cSound,
-																		indxn = self.istance,
-																		ftable = 13)
+											digits=2,
+											min_val = -12.0,
+											max_val = 12.0,
+											increment=0.01,
+											value = 0.0,
+											size = siz,
+											cSound = self.cSound,
+											indxn = self.istance,
+											ftable = 13)
 		self.items.append(self.shf)
 		self.cSound.TableSet(13, self.istance, 0)
 		#Volume
 		self.vol = fsm.FsmTs(parent=self.parent, id=-1,
-																		digits=2,
-																		min_val = 0.0,
-																		max_val = 3.0,
-																		increment=0.01,
-																		value = 1.0,
-																		size = siz,
-																		cSound = self.cSound,
-																		indxn = self.istance,
-																		ftable = 17)
+											digits=2,
+											min_val = 0.0,
+											max_val = 3.0,
+											increment=0.01,
+											value = 1.0,
+											size = siz,
+											cSound = self.cSound,
+											indxn = self.istance,
+											ftable = 17)
 		self.items.append(self.vol)
 		self.cSound.TableSet(17, self.istance, 1.0)
 		
